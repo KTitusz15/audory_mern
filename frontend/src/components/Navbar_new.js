@@ -6,8 +6,8 @@ const Navbar_new = () => {
         <div class="px-5 py-5 lg:px-5 lg:pl-3">
             <div class="flex items-center justify-between">
             <div class="flex items-center justify-start rtl:justify-end">
-                <a href="https://flowbite.com" class="flex ms-2 md:me-24">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="FlowBite Logo" />
+                <a href="#" class="flex ms-2 md:me-24">
+                <img src="https://picsum.photos/200" class="h-8 me-3 rounded-full" alt="Audory Logo" />
                 <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Audory</span>
                 </a>
             </div>
@@ -16,16 +16,16 @@ const Navbar_new = () => {
                     <div>
                     <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                         <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo" />
+                        <img class="w-8 h-8 rounded-full" src="https://picsum.photos/200" alt="user photo" />
                     </button>
                     </div>
                     <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
                     <div class="px-4 py-3" role="none">
                         <p class="text-sm text-gray-900 dark:text-white" role="none">
-                        Neil Sims
+                        Username
                         </p>
                         <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                        neil.sims@flowbite.com
+                        email
                         </p>
                     </div>
                     <ul class="py-1" role="none">
