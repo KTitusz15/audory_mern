@@ -75,11 +75,19 @@ const updatePost = async (req, res) => {
     res.status(200).json(post)
 }
 
+/* Get 3 posts */
+const getPostsPreview = async (req, res) => {
+    const posts = await Post.find({}).sort({createdAt: -1}).limit(3);
+
+    res.status(200).json(posts)
+}
+
 
 module.exports = {
     getPosts,
     getPost,
     createPost,
     deletePost,
-    updatePost
+    updatePost,
+    getPostsPreview
 }

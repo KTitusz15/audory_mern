@@ -4,13 +4,14 @@ const {
     getPost,
     createPost,
     deletePost,
-    updatePost
+    updatePost,
+    getPostsPreview
 }    = require('../controllers/postController')
 
 const router = express.Router()
 
-/* GET all posts */
-router.get('/', getPosts)
+/* GET 3 posts for homepage */
+router.get('/', getPostsPreview)
 
 /* GET a single post */
 router.get('/:id', getPost)
@@ -23,5 +24,8 @@ router.delete('/:id', deletePost)
 
 /* UPDATE a single post */
 router.patch('/:id', updatePost)
+
+/* GET all posts */
+router.get('/posts', getPosts)
 
 module.exports = router
