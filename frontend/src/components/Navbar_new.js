@@ -1,53 +1,32 @@
 import React from 'react'
+import { useAuth0 } from '@auth0/auth0-react';
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 
 const Navbar_new = () => {
-  return (
-    <nav class="fixed top-0 z-50 w-full">
-        <div class="px-5 py-5 lg:px-5 lg:pl-3">
-            <div class="flex items-center justify-between">
-            <div class="flex items-center justify-start rtl:justify-end">
-                <a href="#" class="flex ms-2 md:me-24">
-                <img src="https://picsum.photos/200" class="h-8 me-3 rounded-full" alt="Audory Logo" />
-                <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Audory</span>
-                </a>
-            </div>
-            <div class="flex items-center">
-                <div class="flex items-center ms-3">
-                    <div>
-                    <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
-                        <span class="sr-only">Open user menu</span>
-                        <img class="w-8 h-8 rounded-full" src="https://picsum.photos/200" alt="user photo" />
-                    </button>
+    const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+
+    return (
+        <nav id='navbar' className="fixed top-0 z-50 w-full transition-colors duration-300">
+            <div className="px-5 py-5 lg:px-5 lg:pl-3">
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-start rtl:justify-end">
+                        <a href="#" className="flex ms-2 md:me-24">
+                            <img src="https://picsum.photos/200" className="h-8 me-3 rounded-full" alt="Audory Logo" />
+                            <span className="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Audory</span>
+                        </a>
                     </div>
-                    <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600" id="dropdown-user">
-                    <div class="px-4 py-3" role="none">
-                        <p class="text-sm text-gray-900 dark:text-white" role="none">
-                        Username
-                        </p>
-                        <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
-                        email
-                        </p>
-                    </div>
-                    <ul class="py-1" role="none">
-                        <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
-                        </li>
-                        <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Settings</a>
-                        </li>
-                        <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Earnings</a>
-                        </li>
-                        <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</a>
-                        </li>
-                    </ul>
+                    <div className="flex items-center">
+                        <div className="flex items-center ms-3 text-white">
+                            <div>
+                                <LoginButton />
+                                <LogoutButton />
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
     )
 }
 

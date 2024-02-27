@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 
 /* Pages and components */
 import Home from './pages/Home';
+import Profile from './pages/Profile';
 import Navbar from './components/Navbar';
 import Background from './components/Background';
 import BottomNavbar from './components/BottomNavbar';
@@ -26,6 +27,10 @@ function App() {
             <Route 
               path="/"
               element={<Home />}
+            />
+            <Route 
+              path="/profile"
+              element={<Profile />}
             />
           </Routes>
         </div>

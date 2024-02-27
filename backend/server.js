@@ -4,6 +4,7 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const postRoutes = require('./routes/posts')
+const axios = require('axios');
 
 
 /* Express app */
@@ -13,10 +14,7 @@ const app = express()
 /* Middleware */
 app.use(express.json())
 
-app.use((req, res, next) => {
-    console.log(req.path, req.method)
-    next()
-})
+
 
 /* Routes */
 app.use('/api/posts', postRoutes)
