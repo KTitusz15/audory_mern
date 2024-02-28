@@ -1,10 +1,8 @@
 import React from 'react'
-import { useAuth0 } from '@auth0/auth0-react';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
+
 
 const Navbar_new = () => {
-    const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+
 
     return (
         <nav id='navbar' className="fixed top-0 z-50 w-full transition-colors duration-300">
@@ -19,8 +17,7 @@ const Navbar_new = () => {
                     <div className="flex items-center">
                         <div className="flex items-center ms-3 text-white">
                             <div>
-                                <LoginButton />
-                                <LogoutButton />
+                                
                             </div>
                         </div>
                     </div>

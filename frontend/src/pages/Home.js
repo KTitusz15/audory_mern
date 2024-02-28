@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 
 
@@ -6,20 +6,21 @@ import axios from 'axios'
 import PostDetails from '../components/PostDetails'
 import Filter from '../components/Filter'
 import PostForm from '../components/PostForm'
-import Profile from './Profile'
+import PostsContext from '../context/PostContext'
+
 
 const Home = () => {
-    const [posts, setPosts] = useState(null)
+    const { posts, createPost } = useContext(PostsContext);
 
-    useEffect(() => {
-        axios.get('/api/posts')
-            .then(response => {
-                setPosts(response.data); // Update state with data from API
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    }, [])
+    const handleCreatePost = async (formData) => {
+        try {
+            await createPost(formData);
+            // Post created successfully, no need to re-fetch posts as it's handled by PostsProvider
+        } catch (error) {
+            console.error('Error creating post:', error);
+            // Handle error, show error message to the user, etc.
+        }
+    };
 
     return (
         <div className='home'>
@@ -39,8 +40,8 @@ const Home = () => {
                             </a>
                         </div>
                     </div>
-                    <PostForm />
-                    <Profile />
+                    <PostForm onCreatePost={handleCreatePost} />
+
                 </div>
             </div>
 

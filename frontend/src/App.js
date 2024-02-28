@@ -28,10 +28,7 @@ function App() {
               path="/"
               element={<Home />}
             />
-            <Route 
-              path="/profile"
-              element={<Profile />}
-            />
+            
           </Routes>
         </div>
       </BrowserRouter>
