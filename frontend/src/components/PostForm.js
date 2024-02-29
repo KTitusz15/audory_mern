@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const PostForm = () => {
+const PostForm = ({ onCreatePost }) => {
   const [formData, setFormData] = useState({
     title: '',
     user: '',
@@ -18,9 +18,8 @@ const PostForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/posts', formData);
-      console.log('Post created successfully');
-      // You can handle success here, like showing a success message or redirecting the user
+      await onCreatePost(formData); // Call the onCreatePost function passed as prop
+      // Optionally, you can clear the form fields or show a success message here
     } catch (error) {
       console.error('Error creating post:', error);
       // Handle error, show error message to the user, etc.

@@ -77,9 +77,9 @@ const updatePost = async (req, res) => {
 
 /* Get 3 posts */
 const getPostsPreview = async (req, res) => {
-    const posts = await Post.find({}).sort({createdAt: -1}).limit(3);
+    const posts3 = await Post.find({}).sort({createdAt: -1}).limit(3);
 
-    res.status(200).json(posts)
+    res.status(200).json(posts3)
 }
 
 

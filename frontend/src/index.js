@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import './functions.js';
 import App from './App';
-import PostsProvider from './provider/PostsProvider.js';
+import PostsProvider from './provider/PostsProvider';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

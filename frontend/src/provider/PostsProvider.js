@@ -10,20 +10,22 @@ const PostsProvider = ({ children }) => {
     fetchPosts();
   }, []);
 
-  const fetchPosts = () => {
-    axios.get('/api/posts')
-      .then(response => {
-        setPosts(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching posts:', error);
-      });
+  const fetchPosts = async () => {
+    try {
+      const response = await axios.get('/api/posts');
+      setPosts(response.data);
+    } catch (error) {
+      console.error('Error fetching posts:', error);
+      throw error; // Propagate error to the component
+    }
   };
 
   const createPost = async (newPostData) => {
     try {
       const response = await axios.post('/api/posts', newPostData);
+      console.log('Current posts state before update:', posts);
       setPosts([...posts, response.data]);
+      console.log('Current posts state after update:', [...posts, response.data]);
     } catch (error) {
       console.error('Error creating post:', error);
       throw error; // Propagate error to the component
